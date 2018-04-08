@@ -1,0 +1,36 @@
+{
+  "name": "penv.macro",
+  "version": "0.0.0",
+  "main": "macro.js",
+  "author": "Jianhua Cheng <jianhua.cheng@liulishuo.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "babel-plugin-macros": "^2.2.0"
+  },
+  "files": ["dist", "macro.js"],
+  "scripts": {
+    "build": "kcd-scripts build",
+    "lint": "kcd-scripts lint",
+    "test": "kcd-scripts test",
+    "test:update": "kcd-scripts test --updateSnapshot",
+    "validate": "kcd-scripts validate",
+    "precommit": "kcd-scripts precommit",
+    "release": "standard-version"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/kcd-scripts/eslint.js"
+  },
+  "eslintIgnore": ["node_modules", "coverage", "dist"],
+  "babel": {
+    "presets": "kcd-scripts/babel"
+  },
+  "devDependencies": {
+    "babel-plugin-macros": "^2.2.0",
+    "babel-plugin-tester": "^5.0.0",
+    "kcd-scripts": "^0.37.0",
+    "standard-version": "^4.3.0"
+  }
+}
