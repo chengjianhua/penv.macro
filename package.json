@@ -1,6 +1,6 @@
 {
   "name": "penv.macro",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "macro.js",
   "author": "Jianhua Cheng <jianhua.cheng@liulishuo.com>",
   "license": "MIT",
