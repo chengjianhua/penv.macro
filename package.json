@@ -7,13 +7,14 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chengjianhua/penv.macro.git"
+  },
   "peerDependencies": {
     "babel-plugin-macros": "^2.2.0"
   },
-  "files": [
-    "dist",
-    "macro.js"
-  ],
+  "files": ["dist", "macro.js"],
   "scripts": {
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
@@ -21,16 +22,13 @@
     "test:update": "kcd-scripts test --updateSnapshot",
     "validate": "kcd-scripts validate",
     "precommit": "kcd-scripts precommit",
-    "release": "standard-version"
+    "release": "standard-version",
+    "prepare": "npm run build"
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js"
   },
-  "eslintIgnore": [
-    "node_modules",
-    "coverage",
-    "dist"
-  ],
+  "eslintIgnore": ["node_modules", "coverage", "dist"],
   "babel": {
     "presets": "kcd-scripts/babel"
   },
