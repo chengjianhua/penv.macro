@@ -1,6 +1,6 @@
 const {createMacro} = require('babel-plugin-macros')
 
-function envVariableMacro({references, babel: {types: t}, config}) {
+function envVariableMacro({references, babel: {types: t}, config = {}}) {
   const {targetName = 'NODE_ENV'} = config
   const targetEnv = process.env[targetName]
 
