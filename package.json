@@ -1,6 +1,6 @@
 {
   "name": "penv.macro",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "macro.js",
   "author": "Jianhua Cheng <jianhua.cheng@liulishuo.com>",
   "license": "MIT",
@@ -10,7 +10,10 @@
   "peerDependencies": {
     "babel-plugin-macros": "^2.2.0"
   },
-  "files": ["dist", "macro.js"],
+  "files": [
+    "dist",
+    "macro.js"
+  ],
   "scripts": {
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
@@ -23,7 +26,11 @@
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js"
   },
-  "eslintIgnore": ["node_modules", "coverage", "dist"],
+  "eslintIgnore": [
+    "node_modules",
+    "coverage",
+    "dist"
+  ],
   "babel": {
     "presets": "kcd-scripts/babel"
   },
