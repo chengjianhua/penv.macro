@@ -1,3 +1,18 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+* [penv.macro](#penvmacro)
+  * [Language](#language)
+  * [Installation](#installation)
+  * [Usage](#usage)
+    * [Basic](#basic)
+    * [Advanced](#advanced)
+  * [Issues](#issues)
+  * [License](#license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # penv.macro
 
 [![version][version-badge]][package]
@@ -8,6 +23,10 @@
 
 The `penv.macro` aims to write configurations of multiple environments in one
 file simultaneously and remove irrelevant configuration codes from the final bundle. If you want to know more about this plugin, please see [here](DETAILS.md).
+
+## Language
+
+[English](#) | [中文](README.zh-CN.md)
 
 ## Installation
 
@@ -27,9 +46,9 @@ You'll also need to install and configure [babel-macros](https://github.com/kent
 
 ## Usage
 
-Once you've [configured `babel-macros`](https://github.com/kentcdodds/babel-plugin-macros/blob/master/other/docs/user.md) you can `import/require` penv.macro.
+Once you've [configured `babel-macros`](https://github.com/kentcdodds/babel-plugin-macros/blob/master/other/docs/user.md) you can `import/require` `penv.macro`.
 
-#### Basic
+### Basic
 
 ```javascript
 import env from 'penv.macro'
@@ -39,15 +58,15 @@ const BASE_URL = env({
   staging: 'https://staging.example.com',
   production: (() => 'https://production.example.com')(),
 })
-
+###
 
 // Assume that the value of `process.env.NODE_ENV` is `production`
 const BASE_URL = (() => 'https://production.example.com')()
 ```
 
-#### Advanced
+### Advanced
 
-The default node environment variable used to determine which property value would
+The default [node](https://nodejs.org/en/) environment variable used to determine which property value would
 be matched is `NODE_ENV`, if you want to change the default setting, you can customize
 it by [configuring `babel-plugin-macros`](https://github.com/kentcdodds/babel-plugin-macros/blob/master/other/docs/author.md#config-experimental).
 
@@ -71,6 +90,7 @@ To know more details, please go to the above [link](https://github.com/kentcdodd
 Click [here](https://github.com/chengjianhua/penv.macro/issues/new) to open a new issue.
 
 ## License
+
 [MIT](https://github.com/chengjianhua/penv.macro/blob/master/LICENSE)
 
 [npm]: https://www.npmjs.com/
