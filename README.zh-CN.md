@@ -80,4 +80,4 @@ const BASE_URL = (() => 'https://production.example.com')()
 [downloads-badge]: https://img.shields.io/npm/dm/penv.macro.svg?style=flat-square
 [npmcharts]: http://npmcharts.com/compare/penv.macro
 [license-badge]: https://img.shields.io/npm/l/penv.macro.svg?style=flat-square
-[license]: https://github.com/kentcdodds/penv.macro/blob/master/LICENSE
+[license]: https://github.com/chengjianhua/penv.macro/blob/master/LICENSE
