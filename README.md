@@ -58,7 +58,6 @@ const BASE_URL = env({
   staging: 'https://staging.example.com',
   production: (() => 'https://production.example.com')(),
 })
-###
 
 // Assume that the value of `process.env.NODE_ENV` is `production`
 const BASE_URL = (() => 'https://production.example.com')()
