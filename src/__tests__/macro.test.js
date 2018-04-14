@@ -35,5 +35,16 @@ pluginTester({
         });
       `,
     },
+
+    'should remove expression if `env` is a standalone expression': {
+      // only: true,
+      code: `
+        import penv from './src/macro';
+
+        penv({
+          unmatched: () => {},
+        });
+      `,
+    },
   },
 })

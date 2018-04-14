@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`macros should remove expression if \`env\` is a standalone expression: should remove expression if \`env\` is a standalone expression 1`] = `
+"
+import penv from './src/macro';
+
+penv({
+  unmatched: () => {},
+});
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+
+"
+`;
+
 exports[`macros should replace the environment variable to the matched value: should replace the environment variable to the matched value 1`] = `
 "
 import env from './src/macro';
