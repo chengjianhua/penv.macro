@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`macros should remove expression if \`env\` is a standalone expression: should remove expression if \`env\` is a standalone expression 1`] = `
+exports[`penv.macro # with config macros should remove expression if \`env\` is a standalone expression: should remove expression if \`env\` is a standalone expression 1`] = `
 "
 import penv from './src/macro';
-
+  
 penv({
   unmatched: () => {},
 });
@@ -14,10 +14,10 @@ penv({
 "
 `;
 
-exports[`macros should replace the environment variable to the matched value: should replace the environment variable to the matched value 1`] = `
+exports[`penv.macro # with config macros should replace the environment variable to the matched value: should replace the environment variable to the matched value 1`] = `
 "
 import env from './src/macro';
-
+  
 const variable = env({
   development: 'development',
   staging: 'staging',
@@ -39,10 +39,65 @@ const variable = () => {
 "
 `;
 
-exports[`macros should use \`null\` as default value if no relevant value was matched: should use \`null\` as default value if no relevant value was matched 1`] = `
+exports[`penv.macro # with config macros should use \`null\` as default value if no relevant value was matched: should use \`null\` as default value if no relevant value was matched 1`] = `
 "
 import inlineEnv from './src/macro';
+  
+const variable = inlineEnv({
+  development: 'development',
+  staging: 'staging',
+  production: 'production',
+});
 
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const variable = null;
+"
+`;
+
+exports[`penv.macro # without config macros should remove expression if \`env\` is a standalone expression: should remove expression if \`env\` is a standalone expression 1`] = `
+"
+import penv from './src/macro';
+  
+penv({
+  unmatched: () => {},
+});
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+
+"
+`;
+
+exports[`penv.macro # without config macros should replace the environment variable to the matched value: should replace the environment variable to the matched value 1`] = `
+"
+import env from './src/macro';
+  
+const variable = env({
+  development: 'development',
+  staging: 'staging',
+  production: 'production',
+  test: () => {
+    console.log('test');
+    
+    return 'test';
+  }
+});
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const variable = () => {
+  console.log('test');
+
+  return 'test';
+};
+"
+`;
+
+exports[`penv.macro # without config macros should use \`null\` as default value if no relevant value was matched: should use \`null\` as default value if no relevant value was matched 1`] = `
+"
+import inlineEnv from './src/macro';
+  
 const variable = inlineEnv({
   development: 'development',
   staging: 'staging',

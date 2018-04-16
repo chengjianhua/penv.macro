@@ -1,5 +1,5 @@
 module.exports = {
   penv: {
-    targetName: 'NODE_ENV',
+    targetName: 'APP_ENV',
   },
 }
