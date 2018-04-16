@@ -17,6 +17,7 @@
 
 [![version][version-badge]][package]
 ![downloads][downloads-badge]
+[![Build Status][travis-svg]][travis-repo]
 [![MIT License][license-badge]][license]
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square)](https://conventionalcommits.org)
 [![Babel Macro](https://img.shields.io/badge/babel--macro-%F0%9F%8E%A3-f5da55.svg?style=flat-square)](https://github.com/kentcdodds/babel-plugin-macros)
@@ -96,6 +97,8 @@ Click [here](https://github.com/chengjianhua/penv.macro/issues/new) to open a ne
 [version-badge]: https://img.shields.io/npm/v/penv.macro.svg?style=flat-square
 [package]: https://www.npmjs.com/package/penv.macro
 [downloads-badge]: https://img.shields.io/npm/dm/penv.macro.svg?style=flat-square
+[travis-svg]: https://travis-ci.org/chengjianhua/penv.macro.svg?style=flat-square&branch=master
+[travis-repo]: https://travis-ci.org/chengjianhua/penv.macro
 [npmcharts]: http://npmcharts.com/compare/penv.macro
 [license-badge]: https://img.shields.io/npm/l/penv.macro.svg?style=flat-square
 [license]: https://github.com/chengjianhua/penv.macro/blob/master/LICENSE
