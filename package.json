@@ -43,7 +43,9 @@
     "*.d.ts"
   ],
   "babel": {
-    "presets": "kcd-scripts/babel"
+    "presets": [
+      "kcd-scripts/babel"
+    ]
   },
   "devDependencies": {
     "babel-plugin-macros": "^2.6.1",
@@ -56,5 +58,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.5.0"
   }
 }
