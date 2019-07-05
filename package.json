@@ -18,33 +18,39 @@
     "dist",
     "macro.js"
   ],
+  "types": "index.d.ts",
   "scripts": {
     "build": "kcd-scripts build",
     "lint": "kcd-scripts lint",
     "test": "kcd-scripts test",
     "test:update": "kcd-scripts test --updateSnapshot",
     "validate": "kcd-scripts validate",
-    "precommit": "kcd-scripts precommit",
     "release": "standard-version",
     "prepare": "npm run build"
   },
   "eslintConfig": {
     "extends": "./node_modules/kcd-scripts/eslint.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "kcd-scripts pre-commit"
+    }
+  },
   "eslintIgnore": [
     "node_modules",
     "coverage",
-    "dist"
+    "dist",
+    "*.d.ts"
   ],
   "babel": {
     "presets": "kcd-scripts/babel"
   },
   "devDependencies": {
-    "babel-plugin-macros": "^2.2.0",
-    "babel-plugin-tester": "^5.0.0",
+    "babel-plugin-macros": "^2.6.1",
+    "babel-plugin-tester": "^6.2.1",
     "cz-conventional-changelog": "^2.1.0",
-    "kcd-scripts": "^0.37.0",
-    "standard-version": "^4.3.0"
+    "kcd-scripts": "^1.4.0",
+    "standard-version": "^6.0.1"
   },
   "config": {
     "commitizen": {
