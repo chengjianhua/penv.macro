@@ -1,55 +1,8 @@
-import pluginTester from 'babel-plugin-tester'
-import plugin from 'babel-plugin-macros'
+import macrosPlugin from 'babel-plugin-macros'
+
+import createTests from './helpers/create-tests'
 
 process.env.NODE_ENV = 'test'
-
-const testMacro = () => {
-  pluginTester({
-    plugin,
-    snapshot: true,
-    tests: {
-      'should replace the environment variable to the matched value': {
-        code: `
-          import env from './src/macro';
-  
-          const variable = env({
-            development: 'development',
-            staging: 'staging',
-            production: 'production',
-            test: () => {
-              console.log('test');
-              
-              return 'test';
-            }
-          });
-        `,
-      },
-
-      'should use `null` as default value if no relevant value was matched': {
-        code: `
-          import inlineEnv from './src/macro';
-  
-          const variable = inlineEnv({
-            development: 'development',
-            staging: 'staging',
-            production: 'production',
-          });
-        `,
-      },
-
-      'should remove expression if `env` is a standalone expression': {
-        // only: true,
-        code: `
-          import penv from './src/macro';
-  
-          penv({
-            unmatched: () => {},
-          });
-        `,
-      },
-    },
-  })
-}
 
 describe('penv.macro', () => {
   describe('# with config', () => {
@@ -60,7 +13,15 @@ describe('penv.macro', () => {
       process.env.APP_ENV = 'test'
     })
 
-    testMacro()
+    createTests({
+      plugin: (babel, options) =>
+        macrosPlugin(babel, {
+          penv: {
+            targetName: 'APP_ENV',
+          },
+          ...options,
+        }),
+    })
 
     afterAll(() => {
       process.env.APP_ENV = originalAppEnv
@@ -73,17 +34,17 @@ describe('penv.macro', () => {
     beforeAll(() => {
       originalNodeEnv = process.env.NODE_ENV
       process.env.NODE_ENV = 'test'
-
-      jest.doMock('cosmiconfig', () => {
-        return () => ({load: () => null})
-      })
     })
 
-    testMacro()
+    createTests({
+      plugin: (babel, options) =>
+        macrosPlugin(babel, {
+          penv: null,
+          ...options,
+        }),
+    })
 
     afterAll(() => {
-      jest.resetModules()
-
       process.env.NODE_ENV = originalNodeEnv
     })
   })

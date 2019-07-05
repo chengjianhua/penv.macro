@@ -2,7 +2,7 @@
 
 exports[`penv.macro # with config macros should remove expression if \`env\` is a standalone expression: should remove expression if \`env\` is a standalone expression 1`] = `
 "
-import penv from './src/macro';
+import penv from '../../macro';
   
 penv({
   unmatched: () => {},
@@ -16,8 +16,8 @@ penv({
 
 exports[`penv.macro # with config macros should replace the environment variable to the matched value: should replace the environment variable to the matched value 1`] = `
 "
-import env from './src/macro';
-  
+import env from '../../macro';
+
 const variable = env({
   development: 'development',
   staging: 'staging',
@@ -33,7 +33,6 @@ const variable = env({
 
 const variable = () => {
   console.log('test');
-
   return 'test';
 };
 "
@@ -41,7 +40,7 @@ const variable = () => {
 
 exports[`penv.macro # with config macros should use \`null\` as default value if no relevant value was matched: should use \`null\` as default value if no relevant value was matched 1`] = `
 "
-import inlineEnv from './src/macro';
+import inlineEnv from '../../macro';
   
 const variable = inlineEnv({
   development: 'development',
@@ -57,7 +56,7 @@ const variable = null;
 
 exports[`penv.macro # without config macros should remove expression if \`env\` is a standalone expression: should remove expression if \`env\` is a standalone expression 1`] = `
 "
-import penv from './src/macro';
+import penv from '../../macro';
   
 penv({
   unmatched: () => {},
@@ -71,8 +70,8 @@ penv({
 
 exports[`penv.macro # without config macros should replace the environment variable to the matched value: should replace the environment variable to the matched value 1`] = `
 "
-import env from './src/macro';
-  
+import env from '../../macro';
+
 const variable = env({
   development: 'development',
   staging: 'staging',
@@ -88,7 +87,6 @@ const variable = env({
 
 const variable = () => {
   console.log('test');
-
   return 'test';
 };
 "
@@ -96,7 +94,7 @@ const variable = () => {
 
 exports[`penv.macro # without config macros should use \`null\` as default value if no relevant value was matched: should use \`null\` as default value if no relevant value was matched 1`] = `
 "
-import inlineEnv from './src/macro';
+import inlineEnv from '../../macro';
   
 const variable = inlineEnv({
   development: 'development',
