@@ -16,6 +16,7 @@
   },
   "files": [
     "dist",
+    "*.d.ts",
     "macro.js"
   ],
   "types": "index.d.ts",
