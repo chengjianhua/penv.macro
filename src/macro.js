@@ -9,6 +9,7 @@ function envVariableMacro({references, babel: {types: t}, config}) {
   defaultReferences.forEach(referencePath => {
     const {parentPath} = referencePath
     const argumentPath = parentPath.get('arguments')[0]
+    const defaultValue = parentPath.get('arguments')[1]
 
     const matchedPropertyPath = argumentPath
       .get('properties')
@@ -20,6 +21,8 @@ function envVariableMacro({references, babel: {types: t}, config}) {
 
     const matchedValueNode = matchedPropertyPath
       ? matchedPropertyPath.get('value').node
+      : defaultValue
+      ? defaultValue
       : t.nullLiteral()
 
     const wrapperPath = parentPath.get('parentPath').parentPath
