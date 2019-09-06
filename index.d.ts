@@ -1,1 +1,4 @@
-export default function<T = any>(candidates: Record<string, T>): T
+export default function<T = any>(
+  candidates: Record<string, T>,
+  defaultValue: any,
+): T

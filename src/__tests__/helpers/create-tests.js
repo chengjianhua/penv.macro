@@ -48,6 +48,42 @@ export default function createTestsForPenvMacro({plugin}) {
           });
         `,
       },
+
+      "should replace default string value when didn't match and default value is provided": {
+        code: `
+          import inlineEnv from '../../macro';
+  
+          const variable = inlineEnv({
+            development: 'development',
+            staging: 'staging',
+            production: 'production',
+          }, 'defaultStringValue');
+        `,
+      },
+
+      "should replace default function value when didn't match and default value is provided": {
+        code: `
+          import inlineEnv from '../../macro';
+  
+          const variable = inlineEnv({
+            development: 'development',
+            staging: 'staging',
+            production: 'production',
+          }, () => 'defaultStringValue');
+        `,
+      },
+
+      "should replace default object value when didn't match and default value is provided": {
+        code: `
+          import inlineEnv from '../../macro';
+  
+          const variable = inlineEnv({
+            development: 'development',
+            staging: 'staging',
+            production: 'production',
+          }, { defaultStringValue: 'defaultStringValue'});
+        `,
+      },
     },
   })
 }
