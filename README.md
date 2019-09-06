@@ -6,6 +6,7 @@
   - [Installation](#installation)
   - [Usage](#usage)
     - [Basic](#basic)
+    - [With default value](#with-default-value)
     - [Advanced](#advanced)
   - [Issues](#issues)
   - [License](#license)
@@ -61,6 +62,24 @@ const BASE_URL = env({
 
 // Assume that the value of `process.env.NODE_ENV` is `production`
 const BASE_URL = (() => 'https://production.example.com')()
+```
+
+### With default value
+
+```javascript
+import env from 'penv.macro'
+
+const BASE_URL = env(
+  {
+    development: 'https://development.example.com',
+    staging: 'https://staging.example.com',
+    production: (() => 'https://production.example.com')(),
+  },
+  'defaultValue',
+)
+
+// Assume that the value of `process.env.NODE_ENV` didn't match anything
+const BASE_URL = 'defaultValue'
 ```
 
 ### Advanced
