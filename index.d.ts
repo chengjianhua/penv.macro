@@ -1,4 +1,4 @@
 export default function<T = any>(
   candidates: Record<string, T>,
-  defaultValue: any,
+  defaultValue: T,
 ): T
