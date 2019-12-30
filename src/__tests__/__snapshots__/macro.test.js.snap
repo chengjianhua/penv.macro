@@ -64,6 +64,30 @@ const variable = 'defaultStringValue';
 "
 `;
 
+exports[`penv.macro # with config macros should replace the environment variable to the matched value via regexp: should replace the environment variable to the matched value via regexp 1`] = `
+"
+import env from '../../macro';
+
+const variable = env({
+  development: 'development',
+  staging: 'staging',
+  production: 'production',
+  [/^(test|production)$/]: () => {
+    console.log('test');
+    
+    return 'test';
+  }
+});
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const variable = () => {
+  console.log('test');
+  return 'test';
+};
+"
+`;
+
 exports[`penv.macro # with config macros should replace the environment variable to the matched value: should replace the environment variable to the matched value 1`] = `
 "
 import env from '../../macro';
@@ -165,6 +189,30 @@ const variable = inlineEnv({
       ↓ ↓ ↓ ↓ ↓ ↓
 
 const variable = 'defaultStringValue';
+"
+`;
+
+exports[`penv.macro # without config macros should replace the environment variable to the matched value via regexp: should replace the environment variable to the matched value via regexp 1`] = `
+"
+import env from '../../macro';
+
+const variable = env({
+  development: 'development',
+  staging: 'staging',
+  production: 'production',
+  [/^(test|production)$/]: () => {
+    console.log('test');
+    
+    return 'test';
+  }
+});
+
+      ↓ ↓ ↓ ↓ ↓ ↓
+
+const variable = () => {
+  console.log('test');
+  return 'test';
+};
 "
 `;
 
