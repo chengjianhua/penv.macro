@@ -58,6 +58,7 @@ const BASE_URL = env({
   development: 'https://development.example.com',
   staging: 'https://staging.example.com',
   production: (() => 'https://production.example.com')(),
+  [/^(test|production)/]: 'https://production.example.com',
 })
 
 // Assume that the value of `process.env.NODE_ENV` is `production`
