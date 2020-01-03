@@ -18,9 +18,7 @@ function envVariableMacro({references, babel: {types: t}, config}) {
         if (t.isRegExpLiteral(node))
           return new RegExp(node.pattern).test(targetEnv)
 
-        const keyName = node.name
-
-        return keyName === targetEnv
+        return node.name === targetEnv
       })
 
     const matchedValueNode = matchedPropertyPath
