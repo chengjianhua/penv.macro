@@ -26,6 +26,23 @@ export default function createTestsForPenvMacro({plugin}) {
         `,
       },
 
+      'should replace the environment variable to the matched value via regexp': {
+        code: `
+          import env from '../../macro';
+
+          const variable = env({
+            development: 'development',
+            staging: 'staging',
+            production: 'production',
+            [/^(test|production)$/]: () => {
+              console.log('test');
+              
+              return 'test';
+            }
+          });
+        `,
+      },
+
       'should use `null` as default value if no relevant value was matched': {
         code: `
           import inlineEnv from '../../macro';

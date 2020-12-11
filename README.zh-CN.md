@@ -41,6 +41,7 @@ const BASE_URL = env({
   development: 'https://development.example.com',
   staging: 'https://staging.example.com',
   production: (() => 'https://production.example.com')(),
+  [/^(test|production)/]: 'https://production.example.com',
 })
 
 // 假定 `process.env.NODE_ENV` 的值是 `production`
