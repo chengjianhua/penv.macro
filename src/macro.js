@@ -15,7 +15,13 @@ function envVariableMacro({references, babel: {types: t}, config}) {
       .get('properties')
       .find(propertyPath => {
         const keyNode = propertyPath.get('key').node;
-        const key = t.isStringLiteral(keyNode) ? keyNode.value : keyNode.name;
+        const key = t.Identifier(keyNode) ? keyNode.name :
+          t.isStringLiteral(keyNode) ? keyNode.value :
+          t.isNumericLiteral(keyNode) ? String(keyNode.value) :
+          undefined
+        if (key === undefined) {
+          console.warn('[penv.macro] Unsupported key type:', keyNode.type)
+        }
         return key === targetEnv;
       })
 
